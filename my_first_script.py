@@ -1,6 +1,14 @@
 
-data = """
-George Washington, 1789-1797
+def takeSecondElement(elements):
+    result = -(eval(elements[1]))
+
+    if result<-1000:
+        return 1
+
+    print(result)
+    return result
+
+data = """George Washington, 1789-1797
 John Adams, 1797-1801
 Thomas Jefferson, 1801-1809
 James Madison, 1809-1817
@@ -38,10 +46,24 @@ John Fitzgerald Kennedy, 1961-1963
 Lyndon Baines Johnson, 1963-1969
 Richard Milhous Nixon, 1969-1974
 Gerald Rudolph Ford, 1974-1977
-James Earl Carter, Jr., 1977-1981
+James Earl Carter Jr., 1977-1981
 Ronald Wilson Reagan, 1981-1989
 George Herbert Walker Bush, 1989-1993
 William Jefferson Clinton, 1993-2001
 George Walker Bush, 2001-2009
-Barack Hussein Obama, 2009-
-"""
+Barack Hussein Obama, 2009-"""
+
+
+a = data.split('\n')
+
+for i, value in enumerate(a):
+    a[i] = value.split(', ')
+
+for i, value in enumerate(a):
+    if a[i][1].endswith('-'):
+        a[i][1] += '2017'
+
+a.sort(key=takeSecondElement)
+
+print(a)
+
